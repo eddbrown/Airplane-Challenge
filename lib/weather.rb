@@ -8,5 +8,4 @@ module Weather_Generator
 		["sunny","stormy"][rand(2)]
 	end
 
-
 end

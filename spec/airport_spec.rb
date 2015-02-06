@@ -56,5 +56,4 @@ describe Airport do
 		expect( lambda{airport.take_off(plane)}).to raise_error(RuntimeError, 'it is too stormy to take off!')
 	end
 
-
 end

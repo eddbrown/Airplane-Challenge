@@ -1,4 +1,4 @@
-require 'weather'
+require '~/Projects/Airport-Challenge/lib/weather.rb'
 
 class Weather
 	include Weather_Generator

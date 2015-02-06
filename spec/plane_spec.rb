@@ -1,4 +1,4 @@
-require 'plane'
+require '~/Projects/Airport-Challenge/lib/plane.rb'
  
 describe Plane do
 	

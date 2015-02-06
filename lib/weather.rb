@@ -1,11 +1,7 @@
 module Weather_Generator
 
-	def generate_number!
-		rand(1)
-	end
-
 	def generate_weather!
-		["sunny","stormy"][rand(2)]
+		["sunny","stormy", "sunny", "sunny"].shuffle.first
 	end
 
 end

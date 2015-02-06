@@ -14,7 +14,11 @@ class Airport
 		if generate_weather! == "sunny"
 			@planes << plane if plane.flying?
 			plane.land!
-			@planes.each {|plane| take_off(plane)} if full?
+			if full?
+				until empty? do 
+					@planes.each {|plane| take_off(plane)}
+				end
+			end
 	  else
 	  	raise 'it is too stormy to land!'
 	  end

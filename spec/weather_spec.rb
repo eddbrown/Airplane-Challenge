@@ -9,7 +9,6 @@ describe Weather do
 
 	let(:weather) {Weather.new}
 
-
 	it 'should generate a number!' do
 		weather.generate_number!
 		expect(weather.generate_number!).to be_kind_of(Fixnum)

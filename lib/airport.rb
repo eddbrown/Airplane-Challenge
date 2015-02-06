@@ -11,7 +11,7 @@ class Airport
 	end
 
 	def land(plane)
-		if self.generate_weather! == "sunny"
+		if generate_weather! == "sunny"
 			@planes << plane if plane.flying?
 			plane.land!
 			@planes.each {|plane| take_off(plane)} if full?
@@ -26,8 +26,12 @@ class Airport
 
 	def take_off(plane)
 		raise 'no planes at airport!' if empty?
-		@planes.delete plane
-		plane.take_off!
+		if generate_weather! == "sunny"
+			@planes.delete plane
+			plane.take_off!
+		else
+			raise 'it is too stormy to take off!'
+		end
 	end
 
 	def capacity

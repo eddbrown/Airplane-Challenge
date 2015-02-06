@@ -5,7 +5,7 @@ module Weather_Generator
 	end
 
 	def generate_weather!
-		["sunny","stormy"][rand(1)]
+		["sunny","stormy"][rand(2)]
 	end
 
 

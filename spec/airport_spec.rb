@@ -21,13 +21,6 @@ describe Airport do
 		expect(airport.plane_count).to eq(0)
 	end
 
-	it 'should have a plane capacity which raises an error if surpassed' do
-		6.times{airport.land(plane)}
-		expect(airport).to be_full
-		expect(lambda {airport.land(plane)}).to raise_error(RuntimeError, 'full!')
-		expect(airport.plane_count).to eq(6)
-	end
-
 	it 'should only accept flying planes' do
 		expect(grounded_plane).to receive(:land!)
 		expect(flying_plane).to receive(:land!)
@@ -47,6 +40,8 @@ describe Airport do
 	end
 
 	it 'should tell all planes to take_off if full' do
-		
+		expect(plane).to receive(:take_off!)
+		6.times{airport.land(plane)}
+		expect(airport).to be_empty
 	end
 end

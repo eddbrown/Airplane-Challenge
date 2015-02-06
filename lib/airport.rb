@@ -7,9 +7,9 @@ class Airport
 	end
 
 	def land(plane)
-		raise 'full!' if full?
 		@planes << plane if plane.flying?
 		plane.land!
+		@planes.each {|plane| take_off(plane)} if full?
 	end
 
 	def plane_count

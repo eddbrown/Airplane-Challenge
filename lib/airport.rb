@@ -9,7 +9,7 @@ class Airport
 	def land(plane)
 		raise 'full!' if full?
 		@planes << plane if plane.flying?
-		@flying = false
+		plane.land!
 	end
 
 	def plane_count
@@ -17,7 +17,9 @@ class Airport
 	end
 
 	def take_off(plane)
+		raise 'no planes at airport!' if empty?
 		@planes.delete plane
+		plane.take_off!
 	end
 
 	def capacity
@@ -28,5 +30,8 @@ class Airport
 		plane_count == capacity
 	end
 
+	def empty?
+		plane_count == 0
+	end
 
 end
